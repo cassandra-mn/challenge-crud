@@ -15,3 +15,7 @@ export async function findById(id) {
 export async function findByEmail(email) {
     return await prisma.user.findUnique({where: {email}});
 }
+
+export async function update(id, user) {
+    await prisma.user.update({where: {id}, data: user});
+}

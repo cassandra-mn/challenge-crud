@@ -9,5 +9,7 @@ userRouter.get('/hello', userController.hello);
 userRouter.post('/user', validateModelMiddleware(userModel), userController.create);
 userRouter.get('/user', userController.findUsers);
 userRouter.get('/user/:id', userController.findById);
+userRouter.put('/user/:id', userController.update);
+userRouter.delete('/user/:id', userController.remove);
 
 export default userRouter;
