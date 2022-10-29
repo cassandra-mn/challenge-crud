@@ -26,3 +26,10 @@ export async function update(id, user) {
 
     return await userRepository.update(id, user);
 }
+
+export async function remove(id) {
+    const userExist = await userRepository.findById(id);
+    if (!userExist) return {error: 404, message: 'Usuário não existente!'};
+
+    return await userRepository.remove(id);
+}

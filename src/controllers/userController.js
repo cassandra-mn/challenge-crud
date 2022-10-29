@@ -57,5 +57,12 @@ export async function update(req, res) {
 export async function remove(req, res) {
     const {id} = req.params;
 
-    res.status(501).send();
+    try {
+        const error = await userService.remove(+id);
+        if (!error) res.status(200).send('Usuário removido!');
+        else res.status(error.error).send(error.message);
+    } catch(e) {
+        console.log(e);
+        res.status(500).send('Ocorreu um erro!');
+    }
 }

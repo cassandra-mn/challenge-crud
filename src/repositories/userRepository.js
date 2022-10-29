@@ -19,3 +19,7 @@ export async function findByEmail(email) {
 export async function update(id, user) {
     await prisma.user.update({where: {id}, data: user});
 }
+
+export async function remove(id) {
+    await prisma.user.delete({where: {id}});
+}
