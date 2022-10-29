@@ -1,9 +1,4 @@
-import Error from 'next/error.js';
 import * as userRepository from '../repositories/userRepository.js';
-
-export function hello () {
-    return {message: 'hello'};
-}
 
 export async function create(user) {
     const userExist = await userRepository.findByEmail(user.email);

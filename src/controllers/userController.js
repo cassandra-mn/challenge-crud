@@ -1,10 +1,5 @@
 import * as userService from '../services/userService.js';
 
-export function hello (req, res) {
-    const data = userService.hello();
-    res.status(200).send(data);
-}
-
 export async function create(req, res) {
     const {body} = req;
     
