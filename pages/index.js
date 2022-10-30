@@ -1,25 +1,23 @@
-import Link from 'next/link';
-import {Button} from '@material-ui/core';
+import Link from "next/link";
+import { Button } from "@material-ui/core";
 
 const Home = () => {
-
-  
   return (
     <div>
       <h1>Agenda de contatos</h1>
-      <Link href='/'>
+      <Link href="/">
         <Button>Adicionar contato</Button>
       </Link>
       <br />
-      <Link href='/find'>
+      <Link href="/find">
         <Button>Procurar contato</Button>
       </Link>
       <br />
-      <Link href='/'>
+      <Link href="/showAll">
         <Button>Mostrar todos os contatos</Button>
       </Link>
     </div>
   );
-}
+};
 
 export default Home;
