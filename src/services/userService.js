@@ -13,12 +13,37 @@ export async function create(user) {
   });
 }
 
-export async function findUsers() {
-  return await userRepository.findUsers();
+export async function findById(id) {
+  const user = await userRepository.findById(id);
+  const userHobbies = await userRepository.findHobbiesByUserId(id);
+
+  const promise = userHobbies.map(async (userHobby) => {
+    const {hobbyId} = userHobby;
+    const {hobby} = await userRepository.findHobbyById(hobbyId);
+    return hobby;
+  });
+
+  try {
+    const hobbiesByUser = await Promise.all(promise);
+    return {...user, hobbies: hobbiesByUser};
+  } catch(e) {
+    console.log(e);
+  }
 }
 
-export async function findById(id) {
-  return await userRepository.findById(id);
+export async function findUsers() {
+  const users = await userRepository.findUsers();
+
+  const promise = users.map(async (user) => {
+    return await findById(user.id);
+  });
+
+  try {
+    const usersWithHobbies = Promise.all(promise);
+    return usersWithHobbies;
+  } catch(e) {
+    console.log(e);
+  }
 }
 
 export async function update(id, user) {
