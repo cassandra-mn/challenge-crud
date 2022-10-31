@@ -12,8 +12,7 @@ export default function useUsers(req, res) {
   });
 
   useEffect(() => {
-    ApiService
-      .get("/user")
+    ApiService.get("/user")
       .then((response) => setUsers(response.data))
       .catch((e) => {
         console.log(e);
@@ -41,10 +40,10 @@ export default function useUsers(req, res) {
     });
   }
 
-  return { 
+  return {
     users,
     data,
     setData,
-    newContact
+    newContact,
   };
 }
