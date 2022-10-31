@@ -10,5 +10,7 @@ userRouter.get("/user", userController.findUsers);
 userRouter.get("/user/:id", userController.findById);
 userRouter.put("/user/:id", userController.update);
 userRouter.delete("/user/:id", userController.remove);
+userRouter.get("/hobbies", userController.findHobbies);
+userRouter.get("/user_hobbies", userController.findUserHobbies);
 
 export default userRouter;

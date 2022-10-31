@@ -4,7 +4,13 @@ export async function create(user) {
   const userExist = await userRepository.findByEmail(user.email);
   if (userExist) return { error: 409, message: "Usuário já existente!" };
 
-  return await userRepository.create(user);
+  const { name, email, address, hobbies } = user;
+  const { id: userId } = await userRepository.create({ name, email, address });
+  
+  hobbies.forEach(async (hobby) => {
+    const { id: hobbyId } = await userRepository.userHobbiesId(hobby);
+    await userRepository.userHobbies(userId, hobbyId);
+  });
 }
 
 export async function findUsers() {
@@ -27,4 +33,12 @@ export async function remove(id) {
   if (!userExist) return { error: 404, message: "Usuário não existente!" };
 
   return await userRepository.remove(id);
+}
+
+export async function findHobbies() {
+  return await userRepository.findHobbies();
+}
+
+export async function findUserHobbies() {
+  return await userRepository.findUserHobbies();
 }

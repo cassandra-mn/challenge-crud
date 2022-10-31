@@ -1,7 +1,15 @@
 import prisma from "../../config/database.js";
 
 export async function create(user) {
-  await prisma.user.create({ data: user });
+  return await prisma.user.create({ data: user });
+}
+
+export async function userHobbies(userId, hobbyId) {
+  await prisma.userHobbies.create({ data: { userId, hobbyId } });
+}
+
+export async function userHobbiesId(hobby) {
+  return await prisma.hobbies.findUnique({ where: { hobby } });
 }
 
 export async function findUsers() {
@@ -22,4 +30,12 @@ export async function update(id, user) {
 
 export async function remove(id) {
   await prisma.user.delete({ where: { id } });
+}
+
+export async function findHobbies() {
+  return await prisma.hobbies.findMany();
+}
+
+export async function findUserHobbies() {
+  return await prisma.userHobbies.findMany();
 }

@@ -1,8 +1,18 @@
 import useUsers from "./hooks/useUsers.js";
 import { TextField, Button, Grid } from "@material-ui/core";
+import Select from "react-select";
 
 const Create = () => {
-  const { users, data, setData, newContact } = useUsers();
+  const { users, data, setData, hobbies, newContact } = useUsers();
+  const hobbiesOptions = hobbies?.map((hobby) => {
+    return { value: hobby.hobby, label: hobby.hobby };
+  });
+
+  function insertHobbies(list) {
+    list.forEach((hobby) => {
+      setData({ ...data, hobbies: [...data.hobbies, hobby.value] });
+    });
+  }
 
   return users ? (
     <div>
@@ -35,12 +45,12 @@ const Create = () => {
           />
         </Grid>
         <Grid item xs={8}>
-          <TextField
-            label="Digite o(s) hobbie(s)"
-            type="text"
+          <Select
+            closeMenuOnSelect={false}
+            options={hobbiesOptions}
+            isMulti
             required
-            value={data.hobbies}
-            onChange={(e) => setData({ ...data, hobbies: e.target.value })}
+            onChange={(list) => insertHobbies(list)}
           />
         </Grid>
       </Grid>

@@ -61,3 +61,23 @@ export async function remove(req, res) {
     res.status(500).send("Ocorreu um erro!");
   }
 }
+
+export async function findHobbies(req, res) {
+  try {
+    const hobbies = await userService.findHobbies();
+    res.status(200).send(hobbies);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send("Ocorreu um erro!");
+  }
+}
+
+export async function findUserHobbies(req, res) {
+  try {
+    const hobbies = await userService.findUserHobbies();
+    res.status(200).send(hobbies);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send("Ocorreu um erro!");
+  }
+}

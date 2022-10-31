@@ -11,9 +11,20 @@ datasource db {
 }
 
 model User {
-  id      Int     @id @default(autoincrement())
-  name    String
-  email   String  @unique
-  address  String
-  hobbies String
+  id        Int     @id @default(autoincrement())
+  name      String
+  email     String  @unique
+  address   String
+}
+
+model Hobbies {
+  id        Int     @id @default(autoincrement())
+  hobby     String  @unique
+}
+
+model UserHobbies {
+  userId    Int
+  hobbyId   Int
+
+  @@id([userId, hobbyId])
 }

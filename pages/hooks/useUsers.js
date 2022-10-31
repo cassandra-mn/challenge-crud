@@ -4,11 +4,12 @@ import ApiService from "../services/ApiService.js";
 
 export default function useUsers(req, res) {
   const [users, setUsers] = useState();
+  const [hobbies, setHobbies] = useState();
   const [data, setData] = useState({
     name: "",
     email: "",
     address: "",
-    hobbies: "",
+    hobbies: [],
   });
 
   useEffect(() => {
@@ -18,6 +19,13 @@ export default function useUsers(req, res) {
         console.log(e);
         alert("Houve um erro");
       });
+
+    ApiService.get("/hobbies")
+      .then(response => setHobbies(response.data))
+      .catch(e => {
+        console.log(e);
+        alert("Houve um erro");
+      })
   }, []);
 
   function newContact() {
@@ -25,25 +33,18 @@ export default function useUsers(req, res) {
       .post("http://localhost:5000/user", data)
       .then(() => {
         alert("Contato criado!");
-        clearForm();
+        window.location.reload();
       })
       .catch((e) => {
         alert(e.response.data);
       });
   }
 
-  function clearForm() {
-    setData({
-      email: "",
-      address: "",
-      hobbies: "",
-    });
-  }
-
   return {
     users,
     data,
     setData,
+    hobbies,
     newContact,
   };
 }
