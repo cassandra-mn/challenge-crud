@@ -5,3 +5,5 @@ const nextConfig = {
 }
 
 import('next').NextConfig = nextConfig
+
+export default nextConfig;

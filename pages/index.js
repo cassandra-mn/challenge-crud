@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       <h1>Agenda de contatos</h1>
-      <Link href="/">
+      <Link href="/create">
         <Button>Adicionar contato</Button>
       </Link>
       <br />

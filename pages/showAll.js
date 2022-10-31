@@ -1,6 +1,6 @@
 import useUsers from "./hooks/useUsers.js";
 
-const FindUser = () => {
+const ShowAll = () => {
   const { users } = useUsers();
 
   return users ? (
@@ -21,4 +21,4 @@ const FindUser = () => {
   );
 };
 
-export default FindUser;
+export default ShowAll;
