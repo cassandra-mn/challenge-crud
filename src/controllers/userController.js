@@ -1,4 +1,5 @@
 import * as userService from "../services/userService.js";
+import axios from 'axios';
 
 export async function create(req, res) {
   const { body } = req;

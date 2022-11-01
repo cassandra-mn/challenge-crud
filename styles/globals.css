@@ -11,19 +11,19 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -31,19 +31,19 @@ body {
 
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 * {
@@ -58,4 +58,28 @@ table {
     color: white;
     background: black;
   }
+}
+
+.warning {
+  width: 100vw;
+  height: 40px;
+  padding: 20px;
+  font-size: 12px;
+}
+  
+.block {
+  padding: 20px;
+  margin: 20px 0;
+  display: flex;
+  border: 1px solid lightcoral;
+}
+
+.block:hover {
+  cursor: pointer;
+}
+
+.contact {
+  width: 100vw;
+  height: 100px;
+  line-height: 25px;
 }

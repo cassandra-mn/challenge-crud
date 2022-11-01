@@ -1,30 +1,19 @@
 import useUsers from "./hooks/useUsers.js";
 import { Grid } from "@material-ui/core";
+import ShowContact from "./components/ShowContact.js";
 
 const ShowAll = () => {
   const { users } = useUsers();
 
   return users ? (
-    <Grid container spacing={6}>
-      {users.map((user) => {
-        const {name, email, address, hobbies} = user;
-
-        return (
-          <Grid
-            container item
-            spacing={2}
-            wrap="nowrap"
-            direction="column"
-            key={user.id}
-          >
-            <Grid item>Nome: {name}</Grid>
-            <Grid item>E-mail: {email}</Grid>
-            <Grid item>Endereço: {address}</Grid>
-            <Grid item>Hobbie(s): {hobbies.toString().replaceAll(',', ', ')}</Grid>
-          </Grid>
-        );
-      })}
-    </Grid>
+    <>
+      <h1 className="warning">*Clique sobre um contato para editá-lo</h1>
+      <Grid>
+        {users.map((user) => {
+          return <ShowContact user={user} key={user.id}/>
+        })}
+      </Grid>
+    </>
   ) : (
     <>Loading</>
   );

@@ -1,18 +1,15 @@
-import useUsers from "./hooks/useUsers.js";
 import { TextField, Button, Grid } from "@material-ui/core";
+import useUsers from "./hooks/useUsers.js";
 import Select from "react-select";
 
 const Create = () => {
-  const { users, data, setData, hobbies, newContact } = useUsers();
-  const hobbiesOptions = hobbies?.map((hobby) => {
-    return { value: hobby.hobby, label: hobby.hobby };
-  });
-
-  function insertHobbies(list) {
-    list.forEach((hobby) => {
-      setData({ ...data, hobbies: [...data.hobbies, hobby.value] });
-    });
-  }
+  const { users, 
+    data, setData, 
+    statesFormated, selectState, 
+    citiesFormated, selectCity,
+    hobbiesFormated, insertHobbies, 
+    newContact,
+  } = useUsers();
 
   return users ? (
     <div>
@@ -36,20 +33,38 @@ const Create = () => {
           />
         </Grid>
         <Grid item xs={8}>
-          <TextField
-            label="Digite o endereço"
-            type="text"
+          <Select
+            placeholder="Selecione o estado"
             required
-            value={data.address}
-            onChange={(e) => setData({ ...data, address: e.target.value })}
+            options={statesFormated}
+            onChange={(e) => selectState(e)}
           />
         </Grid>
+        {data.state ?
+          <Grid item xs={8}>
+            <Select
+              placeholder="Selecione a cidade"
+              required
+              options={citiesFormated}
+              onChange={(e) => selectCity(e)}
+            />
+          </Grid>
+          : 
+          <Grid item xs={8}>
+            <Select
+              placeholder="Selecione a cidade"
+              required
+              options={[{label: "Escolha o estado"}]}
+            />
+          </Grid>
+        }
         <Grid item xs={8}>
           <Select
             closeMenuOnSelect={false}
-            options={hobbiesOptions}
+            options={hobbiesFormated}
             isMulti
             required
+            placeholder="Selecione o(s) hobbie(s)"
             onChange={(list) => insertHobbies(list)}
           />
         </Grid>

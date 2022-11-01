@@ -4,8 +4,8 @@ export async function create(user) {
   const userExist = await userRepository.findByEmail(user.email);
   if (userExist) return { error: 409, message: "Usuário já existente!" };
 
-  const { name, email, address, hobbies } = user;
-  const { id: userId } = await userRepository.create({ name, email, address });
+  const { name, email, state, city, hobbies } = user;
+  const { id: userId } = await userRepository.create({ name, email, state, city });
   
   hobbies.forEach(async (hobby) => {
     const { id: hobbyId } = await userRepository.userHobbiesId(hobby);
@@ -39,7 +39,7 @@ export async function findUsers() {
   });
 
   try {
-    const usersWithHobbies = Promise.all(promise);
+    const usersWithHobbies = await Promise.all(promise);
     return usersWithHobbies;
   } catch(e) {
     console.log(e);
