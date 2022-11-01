@@ -8,6 +8,8 @@ export default function useUsers(req, res) {
   const [states, setStates] = useState();
   const [cities, setCities] = useState();
   const [open, setOpen] = useState(false);
+  const [email, setEmail] = useState("");
+  const [user, setUser] = useState();
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -124,6 +126,18 @@ export default function useUsers(req, res) {
     }
   }
 
+  function findByEmail() {
+    const user = users.find((user) => user.email === email);
+    if (user) {
+      setUser(user);
+      alert("Encontrei um usuário!");
+      console.log(user);
+    } else {
+      alert("Usuário não encontrado!");
+    }
+    setEmail("");
+  }
+
   return {
     users,
     data,
@@ -139,5 +153,9 @@ export default function useUsers(req, res) {
     setOpen,
     editContact,
     deleteContact,
+    email,
+    setEmail,
+    findByEmail,
+    user
   };
 }

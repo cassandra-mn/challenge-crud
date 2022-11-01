@@ -1,23 +1,9 @@
 import useUsers from "./hooks/useUsers.js";
 import { TextField, Button } from "@material-ui/core";
-import { useState } from "react";
+import ShowContact from "./components/ShowContact.js";
 
 const FindUser = () => {
-  const { users } = useUsers();
-  const [email, setEmail] = useState("");
-  const [user, setUser] = useState();
-
-  function findByEmail() {
-    const user = users.find((user) => user.email === email);
-    if (user) {
-      setUser(user);
-      alert("Encontrei um usuário!");
-      console.log(user);
-    } else {
-      alert("Usuário não encontrado!");
-    }
-    setEmail("");
-  }
+  const { users, email, setEmail, findByEmail, user } = useUsers();
 
   return users ? (
     <>
@@ -30,6 +16,8 @@ const FindUser = () => {
       <Button type="submit" onClick={findByEmail}>
         Buscar
       </Button>
+
+      {user ? <ShowContact user={user} /> : <></>}
     </>
   ) : (
     <>Loading</>
