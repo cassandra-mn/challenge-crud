@@ -1,13 +1,11 @@
 import { Grid, Button } from "@material-ui/core";
-import useUsers from "../hooks/useUsers.js";
 
-const ShowContact = ({ user }) => {
+const ShowContact = ({ user, setEdit, deleteContact }) => {
   const { id, name, email, state, city, hobbies } = user;
-  const { deleteContact } = useUsers();
 
   return (
     <div className="block">
-      <Grid className="contact" onClick={() => editContact(user)}>
+      <Grid className="contact" onClick={() => setEdit(user)}>
         <Grid item>Nome: {name}</Grid>
         <Grid item>E-mail: {email}</Grid>
         <Grid item>

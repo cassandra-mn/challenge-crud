@@ -1,9 +1,10 @@
 import useUsers from "./hooks/useUsers.js";
 import { TextField, Button } from "@material-ui/core";
 import ShowContact from "./components/ShowContact.js";
+import Form from "./components/Form.js";
 
 const FindUser = () => {
-  const { users, email, setEmail, findByEmail, user } = useUsers();
+  const { users, email, setEmail, findByEmail, user, edit, setEdit, editContact, deleteContact } = useUsers();
 
   return users ? (
     <>
@@ -17,7 +18,24 @@ const FindUser = () => {
         Buscar
       </Button>
 
-      {user ? <ShowContact user={user} /> : <></>}
+      {user ? (
+        <>
+          <ShowContact user={user} setEdit={setEdit} deleteContact={deleteContact}/>
+          {edit.id === user.id ? (
+            <>
+              {console.log(edit)}
+              <Form data={edit} setData={setEdit} />
+              <Button onClick={() => editContact(edit)}>
+                Salvar alterações
+              </Button>
+            </>
+          ) : (
+            <></>
+          )}
+        </>
+      ) : (
+        <></>
+      )}
     </>
   ) : (
     <>Loading</>

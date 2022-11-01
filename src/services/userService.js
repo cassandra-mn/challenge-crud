@@ -2,7 +2,7 @@ import * as userRepository from "../repositories/userRepository.js";
 
 export async function create(user) {
   const userExist = await userRepository.findByEmail(user.email);
-  if (userExist) return { error: 409, message: "Usuário já existente!" };
+  if (userExist) return { error: 409, message: "Este e-mail já está sendo utilizado!" };
 
   const { name, email, state, city, hobbies } = user;
   const { id: userId } = await userRepository.create({ name, email, state, city });
@@ -50,7 +50,8 @@ export async function update(id, user) {
   const userExist = await userRepository.findById(id);
   if (!userExist) return { error: 404, message: "Usuário não existente!" };
 
-  return await userRepository.update(id, user);
+  const {name, email, state, city} = user;
+  await userRepository.update(id, {name, email, state, city}); 
 }
 
 export async function remove(id) {
