@@ -1,9 +1,10 @@
-import useUsers from "./hooks/useUsers.js";
 import { Button, Grid } from "@material-ui/core";
-import ShowContact from "./components/ShowContact.js";
-import Form from "./components/Form.js";
-import GoBack from "./components/GoBack.js";
-import SnackBar from "./components/SnackBar.js";
+import useUsers from "../hooks/useUsers.js";
+import ShowContact from "../components/ShowContact.js";
+import Form from "../components/Form.js";
+import GoBack from "../components/GoBack.js";
+import SnackBar from "../components/SnackBar.js";
+import Loading from "../components/Loading.js";
 
 const ShowAll = () => {
   const {
@@ -46,7 +47,7 @@ const ShowAll = () => {
       <SnackBar message={message} setMessage={setMessage} />
     </>
   ) : (
-    <>Loading</>
+    <Loading />
   );
 };
 

@@ -1,9 +1,10 @@
-import useUsers from "./hooks/useUsers.js";
 import { TextField, Button, Container } from "@material-ui/core";
-import ShowContact from "./components/ShowContact.js";
-import Form from "./components/Form.js";
-import GoBack from "./components/GoBack.js";
-import SnackBar from "./components/SnackBar.js";
+import useUsers from "../hooks/useUsers.js";
+import ShowContact from "../components/ShowContact.js";
+import Form from "../components/Form.js";
+import GoBack from "../components/GoBack.js";
+import SnackBar from "../components/SnackBar.js";
+import Loading from "../components/Loading.js";
 
 const FindUser = () => {
   const {
@@ -59,7 +60,7 @@ const FindUser = () => {
       <SnackBar message={message} setMessage={setMessage} />
     </Container>
   ) : (
-    <>Loading</>
+    <Loading />
   );
 };
 

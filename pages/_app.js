@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@material-ui/core";
 import "../styles/globals.css";
-import theme from './theme.js';
+import theme from '../config/theme.js';
 
 function MyApp({ Component, pageProps }) {
   return (

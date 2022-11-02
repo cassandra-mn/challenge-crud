@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ApiService from "../services/ApiService";
+import ApiService from "../config/ApiService";
 import axios from "axios";
 
 export default function useLocales(req, res) {

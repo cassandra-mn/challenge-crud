@@ -1,5 +1,5 @@
 import axios from "axios";
-import ApiService from "../services/ApiService.js";
+import ApiService from "../config/ApiService.js";
 import { useEffect, useState } from "react";
 
 export default function useUsers(req, res) {

@@ -1,8 +1,9 @@
 import { Button, Container } from "@material-ui/core";
-import useUsers from "./hooks/useUsers.js";
-import Form from "./components/Form.js";
-import GoBack from "./components/GoBack.js";
-import SnackBar from "./components/SnackBar.js";
+import useUsers from "../hooks/useUsers.js";
+import Form from "../components/Form.js";
+import GoBack from "../components/GoBack.js";
+import SnackBar from "../components/SnackBar.js";
+import Loading from "../components/Loading.js";
 
 const Create = () => {
   const { users, data, setData, newContact, message, setMessage } = useUsers();
@@ -17,7 +18,7 @@ const Create = () => {
       <SnackBar message={message} setMessage={setMessage} />
     </Container>
   ) : (
-    <>Loading</>
+    <Loading />
   );
 };
 
