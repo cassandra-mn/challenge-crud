@@ -2,10 +2,6 @@
 
 A aplicação simula uma lista de contatos, em que você pode adicionar, buscar, atualizar e deletetar cada um deles.
 
-## Deploy da aplicação
-
-* [clique aqui](https://challenge-crud-two.vercel.app/)
-
 ## Como rodar em desenvolvimento
 
 1. Clone esse repositório:
