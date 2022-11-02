@@ -1,5 +1,5 @@
 import useUsers from "./hooks/useUsers.js";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button, Container } from "@material-ui/core";
 import ShowContact from "./components/ShowContact.js";
 import Form from "./components/Form.js";
 
@@ -7,7 +7,7 @@ const FindUser = () => {
   const { users, email, setEmail, findByEmail, user, edit, setEdit, editContact, deleteContact } = useUsers();
 
   return users ? (
-    <>
+    <Container>
       <TextField
         label="Digite o email"
         type="text"
@@ -36,7 +36,7 @@ const FindUser = () => {
       ) : (
         <></>
       )}
-    </>
+    </Container>
   ) : (
     <>Loading</>
   );

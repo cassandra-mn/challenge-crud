@@ -1,22 +1,23 @@
-import Link from "next/link";
-import { Button } from "@material-ui/core";
+import { Container, Link } from "@material-ui/core";
+import { AiOutlinePlusCircle, AiOutlineSearch, AiOutlineUnorderedList } from "react-icons/ai";
 
 const Home = () => {
   return (
-    <div>
-      <h1>Agenda de contatos</h1>
-      <Link href="/create">
-        <Button>Adicionar contato</Button>
+    <Container>
+      <h1 className="h1">Agenda</h1>
+      <Link href="/create" className="grid-1">
+        Adicionar contato
+        <AiOutlinePlusCircle className="icons" />
       </Link>
-      <br />
-      <Link href="/find">
-        <Button>Procurar contato</Button>
+      <Link href="/find" className="grid">
+        Procurar contato
+        <AiOutlineSearch className="icons" />
       </Link>
-      <br />
-      <Link href="/showAll">
-        <Button>Mostrar todos os contatos</Button>
+      <Link href="/showAll" className="grid">
+        Mostrar todos os contatos
+        <AiOutlineUnorderedList className="icons" />
       </Link>
-    </div>
+    </Container>
   );
 };
 

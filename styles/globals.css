@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -23,12 +25,11 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 body {
+  height: 100vh;
   line-height: 1;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
+  font-family: 'Roboto', sans-serif;
 }
 ol, ul {
   list-style: none;
@@ -60,26 +61,80 @@ table {
   }
 }
 
-.warning {
+#__next {
   width: 100vw;
+  height: 100vh;
+}
+
+.MuiContainer-root.MuiContainer-maxWidthLg {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  line-height: 25px;
+  background-color: #fcddc8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.h1 {
+  width: 100vw;
+  height: 10%;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0c0636;
+  background-color: #efcaba;
+  font-family: 'Pacifico', cursive;
+}
+
+.icons {
+  font-size: 30px;
+}
+
+.warning {
   height: 40px;
+  margin: 0 10%;
   padding: 20px;
   font-size: 12px;
 }
   
 .block {
-  padding: 20px;
-  margin: 20px 0;
+  height: 300px;
+  padding: 0 30px;
+  margin: 25px 10%;
+  font-size: 20px;
+  line-height: 30px;
+  border-radius: 15px;
   display: flex;
-  border: 1px solid lightcoral;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #fcddc8;
 }
 
 .block:hover {
   cursor: pointer;
+  background-color: #fcddc8;
 }
 
-.contact {
-  width: 100vw;
-  height: 100px;
-  line-height: 25px;
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.select {
+  width: 80%;
+  margin: 0 10%;
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.MuiButtonBase-root.button {
+  width: 100px;
+  margin: 0;
 }
