@@ -36,7 +36,7 @@ A aplicação simula uma lista de contatos, em que você pode adicionar, buscar,
   node src/server.js
   ```
   
-6. Rode o front-end em desenvolvimento:
+6. Em outro terminal, rode o front-end:
 
   ```bash
   npm run dev
