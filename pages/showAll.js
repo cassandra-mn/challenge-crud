@@ -3,9 +3,18 @@ import { Button, Grid } from "@material-ui/core";
 import ShowContact from "./components/ShowContact.js";
 import Form from "./components/Form.js";
 import GoBack from "./components/GoBack.js";
+import SnackBar from "./components/SnackBar.js";
 
 const ShowAll = () => {
-  const { users, editContact, deleteContact, edit, setEdit } = useUsers();
+  const {
+    users,
+    editContact,
+    deleteContact,
+    edit,
+    setEdit,
+    message,
+    setMessage,
+  } = useUsers();
 
   return users ? (
     <>
@@ -23,7 +32,9 @@ const ShowAll = () => {
               {edit.id === user.id ? (
                 <>
                   <Form data={edit} setData={setEdit} />
-                  <Button onClick={() => editContact(edit)}>Salvar alterações</Button>
+                  <Button onClick={() => editContact(edit)}>
+                    Salvar alterações
+                  </Button>
                 </>
               ) : (
                 <></>
@@ -32,6 +43,7 @@ const ShowAll = () => {
           );
         })}
       </Grid>
+      <SnackBar message={message} setMessage={setMessage} />
     </>
   ) : (
     <>Loading</>

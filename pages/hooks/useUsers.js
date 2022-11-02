@@ -8,6 +8,7 @@ export default function useUsers(req, res) {
   const [email, setEmail] = useState("");
   const [user, setUser] = useState();
   const [edit, setEdit] = useState(false);
+  const [message, setMessage] = useState("");
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -21,7 +22,7 @@ export default function useUsers(req, res) {
       .then((response) => setUsers(response.data))
       .catch((e) => {
         console.log(e);
-        alert("Houve um erro");
+        setMessage("Houve um erro");
       });
   }, []);
 
@@ -29,11 +30,11 @@ export default function useUsers(req, res) {
     axios
       .post("http://localhost:5000/user", user)
       .then(() => {
-        alert("Contato criado!");
+        setMessage("Contato criado!");
         window.location.reload();
       })
       .catch((e) => {
-        alert(e.response.data);
+        setMessage(e.response.data);
       });
   }
 
@@ -41,11 +42,11 @@ export default function useUsers(req, res) {
     axios
       .put(`http://localhost:5000/user/${user.id}`, user)
       .then(response => {
-        alert("Contato atualizado!");
+        setMessage("Contato atualizado!");
         window.location.reload();
       })
       .catch(error => {
-        alert("Houve um erro!");
+        setMessage("Houve um erro!");
         console.log(error);
       });
   }
@@ -55,12 +56,12 @@ export default function useUsers(req, res) {
     if (confirmation) {
       ApiService.delete(`/user/${id}`)
       .then((response) => {
-        alert("Contato deletado!");
+        setMessage("Contato deletado!");
         window.location.reload();
       })
       .catch((error) => {
         console.log(error);
-        alert("Houve um erro");
+        setMessage("Houve um erro");
       });
     }
   }
@@ -70,7 +71,7 @@ export default function useUsers(req, res) {
     if (user) {
       setUser(user);
     } else {
-      alert("Usuário não encontrado!");
+      setMessage("Usuário não encontrado!");
     }
     setEmail("");
   }
@@ -91,5 +92,7 @@ export default function useUsers(req, res) {
     setUser,
     edit,
     setEdit,
+    message,
+    setMessage
   };
 }

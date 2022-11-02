@@ -5,15 +5,15 @@ const Home = () => {
   return (
     <Container>
       <h1 className="h1">Agenda</h1>
-      <Link href="/create" className="grid-1">
+      <Link href="/create">
         Adicionar contato
         <AiOutlinePlusCircle className="icons" />
       </Link>
-      <Link href="/find" className="grid">
+      <Link href="/find">
         Procurar contato
         <AiOutlineSearch className="icons" />
       </Link>
-      <Link href="/showAll" className="grid">
+      <Link href="/showAll">
         Mostrar todos os contatos
         <AiOutlineUnorderedList className="icons" />
       </Link>

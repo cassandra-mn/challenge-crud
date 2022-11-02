@@ -3,9 +3,22 @@ import { TextField, Button, Container } from "@material-ui/core";
 import ShowContact from "./components/ShowContact.js";
 import Form from "./components/Form.js";
 import GoBack from "./components/GoBack.js";
+import SnackBar from "./components/SnackBar.js";
 
 const FindUser = () => {
-  const { users, email, setEmail, findByEmail, user, edit, setEdit, editContact, deleteContact } = useUsers();
+  const {
+    users,
+    email,
+    setEmail,
+    findByEmail,
+    user,
+    edit,
+    setEdit,
+    editContact,
+    deleteContact,
+    message,
+    setMessage,
+  } = useUsers();
 
   return users ? (
     <Container>
@@ -22,7 +35,11 @@ const FindUser = () => {
 
       {user ? (
         <>
-          <ShowContact user={user} setEdit={setEdit} deleteContact={deleteContact}/>
+          <ShowContact
+            user={user}
+            setEdit={setEdit}
+            deleteContact={deleteContact}
+          />
           {edit.id === user.id ? (
             <>
               {console.log(edit)}
@@ -38,6 +55,8 @@ const FindUser = () => {
       ) : (
         <></>
       )}
+
+      <SnackBar message={message} setMessage={setMessage} />
     </Container>
   ) : (
     <>Loading</>
