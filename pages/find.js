@@ -2,12 +2,14 @@ import useUsers from "./hooks/useUsers.js";
 import { TextField, Button, Container } from "@material-ui/core";
 import ShowContact from "./components/ShowContact.js";
 import Form from "./components/Form.js";
+import GoBack from "./components/GoBack.js";
 
 const FindUser = () => {
   const { users, email, setEmail, findByEmail, user, edit, setEdit, editContact, deleteContact } = useUsers();
 
   return users ? (
     <Container>
+      <GoBack />
       <TextField
         label="Digite o email"
         type="text"

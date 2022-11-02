@@ -138,3 +138,14 @@ table {
   width: 100px;
   margin: 0;
 }
+
+.back {
+  top: 50px;
+  left: 50px;
+  font-size: 25px;
+  position: absolute;
+}
+
+.back:hover {
+  cursor: pointer;
+}

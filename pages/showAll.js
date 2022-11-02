@@ -2,12 +2,14 @@ import useUsers from "./hooks/useUsers.js";
 import { Button, Grid } from "@material-ui/core";
 import ShowContact from "./components/ShowContact.js";
 import Form from "./components/Form.js";
+import GoBack from "./components/GoBack.js";
 
 const ShowAll = () => {
   const { users, editContact, deleteContact, edit, setEdit } = useUsers();
 
   return users ? (
     <>
+      <GoBack />
       <h1 className="warning">*Clique sobre um contato para editá-lo</h1>
       <Grid>
         {users.map((user) => {
